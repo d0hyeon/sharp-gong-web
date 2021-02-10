@@ -1,6 +1,8 @@
 import React from 'react';
 import { Form, Input, Button } from 'antd';
 import { Layout, H1, Content } from '@src/components/common/styles';
+import { REGEXP_PASSWORD } from '@src/constants/pattern';
+import { ID_RULES, PASSWORD_RULES } from '@src/constants/validate';
 
 const layout = {
   labelCol: { span: 3 },
@@ -37,14 +39,14 @@ const SignUp: React.FC = () => {
             <Form.Item
               label="아이디"
               name="memberId"
-              rules={[{ required: true, message: '아이디를 입력해주세요.' }]}
+              rules={ID_RULES}
             >
               <Input />
             </Form.Item>
             <Form.Item
               label="비밀번호"
               name="memberPassword"
-              rules={[{required: true, message: '비밀번호를 입력해주세요.' }]}
+              rules={PASSWORD_RULES}
             >
               <Input.Password />
             </Form.Item>
@@ -52,7 +54,7 @@ const SignUp: React.FC = () => {
               label="비밀번호 재입력"
               name="memberRePassword"
               rules={[
-                {required: true, message: '비밀번호를 입력해주세요.' },
+                ...PASSWORD_RULES,
                 ({getFieldValue}) => ({
                   validator(_, value) {
                     if(getFieldValue('memberPassword') !== value) {

@@ -10,15 +10,17 @@ const tailLayout = {
   wrapperCol: { offset: 6, span: 12 },
 };
 
+const API_REQURET_HEADERS = {
+  'Content-Type': 'application/json'
+}
+
 const SignUp: React.FC = () => {
   const submitHandler = React.useCallback((form) => {
     delete form.memberRePassword;
     
     fetch('/api/member/register', {
       method: 'post',
-      headers: {
-        "Content-Type": "application/json;charset=UTF-8"
-      },
+      headers: API_REQURET_HEADERS,
       body: JSON.stringify(form)
     });
   }, []);

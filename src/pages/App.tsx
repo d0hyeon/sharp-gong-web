@@ -1,27 +1,14 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import {Global, css} from '@emotion/react';
 
-import Home from './Home';
-// import Header from '../components/layout/Header';
-const SignIn = React.lazy(() => import('@src/pages/SignIn'));
-const SignUp = React.lazy(() => import('@src/pages/SignUp'));
+import Router from '@src/components/Router';
 
 const App: React.FC = () => {
   
   return (
     <>
-      {/* <Header /> */}
       <Global styles={resetCss}/>
-      <React.Suspense fallback="">
-        <Router>
-          <Switch>
-            <Route exact path="/signin" component={SignIn} />
-            <Route exact path="/signup" component={SignUp} />
-            <Route exact path="/" component={Home} />
-          </Switch>
-        </Router>
-      </React.Suspense>
+      <Router />
     </>
   );
 }

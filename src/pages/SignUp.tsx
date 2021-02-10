@@ -1,7 +1,6 @@
 import React from 'react';
 import { Form, Input, Button } from 'antd';
 import { Layout, H1, Content } from '@src/components/common/styles';
-import { REGEXP_PASSWORD } from '@src/constants/pattern';
 import { ID_RULES, PASSWORD_RULES } from '@src/constants/validate';
 
 const layout = {
